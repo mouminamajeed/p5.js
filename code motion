@@ -1,0 +1,484 @@
+var storyStage = "begin";
+var xCoord1 = 700// boy from right fr1
+var yCoord1 = 298 // boy from ground fr 1
+var xCoord2 = 63
+var yCoord2 = 80
+var xCoord3 = 5
+var yCoord3 = 140
+var points = []
+var i = 0
+var snows = [];
+
+//1 
+const drops = [];//
+
+function setup() {
+  createCanvas(700, 500);
+  //2
+  for(let x = 0; x < width; x++) {
+    drops[x] = random(height);
+  }
+  stroke(255);//
+}
+
+
+function draw() {
+  background('#BFEFFF');
+   //3
+    for(let x = 0; x < drops.length; x++) {
+    drops[x] += random(5);
+    if(drops[x] > height){
+      drops[x] = 0;
+    }
+    point(x, drops[x]);
+  } //
+  noStroke()
+  //fill(135, 220, 155);
+  //rect(0, 360, 800, 100);
+   fill('#993300');
+   //the left tree's stem
+  rect(37, 235, 20, 125);
+   //the right tree's stem
+  rect(545, 250, 20, 110);
+  //another right tree stem
+  rect(650, 250, 20, 165);
+  
+  noFill();
+  fill('#008000');
+   //left tree's parts  
+  circle(40, 250,60);
+  circle(53, 230,50);
+  circle(69, 250,50);
+  circle(59, 276,50);
+  circle(35, 274,50);
+  
+  //right tree's parts
+  circle(580, 250,50);
+  circle(551, 230,60);
+  circle(526, 250,50);
+  circle(540, 276,50);
+  circle(570, 274,50);
+  //right tree's parts
+  circle(680, 250,50);
+  circle(651, 230,60);
+  circle(626, 250,50);
+  circle(640, 276,50);
+  circle(670, 274,50);
+  
+ 
+
+ 
+////
+
+  //BEGIN    
+  if (storyStage == "begin") {
+   
+
+   
+   //Clouds
+      drawCloud(550, 60);
+ updateMessage("Press 1 to  ➡️ START &  Press 0 to ⬅️  RESET", 5, height - 9);
+      
+    drawGirl(90, 295);
+        noStroke()
+    fill(250);
+    textSize(30);
+    text("  ⬅️ 'Masha'   ", 110, height -175);
+
+    drawBoy(600, 350);
+      noStroke()
+    fill(250);
+    textSize(30);
+    text("  ➡️ 'Lyra'   ", 410, height -100);
+
+    //message at bottom
+    noStroke()
+    fill(0);
+    textSize(19);
+    text("LYRA🤦‍♀️: I THINK IT WILL RAIN TODAY SO LET'S GO😪")
+
+
+    //Frame 1 
+  } else if (storyStage == "Frame 1") {
+
+    drawCloud(400, 100);
+    drawCloud(230, 90);
+    drawCloud(100, 120);
+    drawCloud(600, 150);
+    updateMessage("Press 2 for the Next Frame ");
+    
+    fill( 69, 168, 66);
+  rect(0, 390, 800, 70);
+    drawGirl(130, 295);
+        
+    drawBoy(xCoord1, yCoord1);
+     noStroke()
+    fill(250);
+    textSize(25);
+        text("Masha:   Hey!! Its raining☔🌧️⛈️ \n                 Come here quickly we'll share an umbrella☂️☔", 50, height-80 );
+  
+    
+    
+    drawUmbrella(160, 270);
+
+
+    {
+      xCoord1 = xCoord1 - 2
+      yCoord1 = yCoord1
+
+      if (xCoord1 == 180) {
+        xCoord1 = 196
+      }
+      if (yCoord1 == 15) {
+        yCoord1 = 16
+      }
+    }
+    
+     //Frame 2    
+  } else if (storyStage == "Frame 2") {
+
+    drawCloud(150, 120);
+    drawCloud(110, 80);
+
+    updateMessage("Press 3 for next frame☂️");
+    drawGirl(130, 295);
+    drawBoy(191, 300);
+    noStroke()
+    fill(250);
+    textSize(25);
+    text("Layra:   Lets wait till the rain stops ⛱️☂️☔", 50, height-60 );
+    
+    drawUmbrella(160, 270);
+    
+
+    //Frame 3   
+  } else if (storyStage == "Frame 3") {
+
+    background(   ' #ffe033');
+    updateMessage("Press 4 for next frame☀️ ");
+
+    //fill(145, 228, 165);
+    rect(0, 360, 800, 90);
+// plants
+  fill(18, 99, 38);
+  ellipse(600, 260, 15, 200); //rght plnt
+   ellipse(588, 340, 30, 10);  //left leaf, rght plnt
+  ellipse(619, 300, 30, 10);
+    //
+      // tree 1
+  fill(67, 51, 8); // tree brown
+  rect(644,335,15,26); // trunk
+  fill('#cc0000');
+ ellipse(660,337,20,25);// tree top
+  ellipse(640,325,30,20);
+  ellipse(644,340,24,30);
+    //tree2
+     
+  fill(67, 51, 8); // tree brown
+  rect(680,335,15,26); // trunk
+  fill('   #ff4d4d');
+ ellipse(675,337,20,25);// tree top
+  ellipse(685,345,30,20);
+  ellipse(695,330,25,25);
+    
+    noStroke()
+    fill(69, 168, 66);
+    rect(0, 360, 800, 90);
+
+    drawGirl(xCoord3, 275);
+    {
+      xCoord3 = xCoord3 + 1
+
+      if (xCoord3 == 5) {
+        xCoord3 = 600
+      }}
+
+    drawBoy(xCoord2, 275);
+    
+    {
+      xCoord2 = xCoord2 + 1
+
+      if (xCoord2 == 10) {
+        xCoord2 = 600
+      }
+      
+    }
+    
+      noStroke()
+    fill('white');
+    textSize(25);
+        text("Masha:   Yayy!The Sun☀️ showed up\n          Everything under the sun looks Golden,\n                        lets go now 🏃🏃‍♂️", 50, height-80 );
+    drawSun(130, 80);
+    
+
+
+    //END    
+  } else if (storyStage == "End") {
+    background(185, 244, 255);
+    updateMessage("                😊    HAPPINESS ALL AROUND, END!   🤗");
+    //noStroke()
+    fill(69, 168, 66);
+    rect(0, 360, 800, 80);
+
+ellipse(20, 310, 10, 250);
+  //
+   // fill(4, 64, 19);
+ellipse(30, 340, 30, 10);//left plnt rght leaf
+    //lft leaf
+  ellipse(2, 300, 30, 10);
+    
+  //ellipse(142, 370, 30, 10);
+
+  ellipse(600, 380, 10, 250); //rght plnt
+  //fill(18, 99, 38);
+
+   ellipse(588, 340, 30, 10);  //left leaf, rght plnt
+  ellipse(619, 300, 30, 10);
+     
+    
+     //flower
+  noStroke();
+  fill('#ff9999');
+  ellipse(100, 320, 30, 30);
+  ellipse(120, 335, 30, 30);
+  ellipse(120, 352, 30, 30);
+  ellipse(100, 360, 30, 30);
+  fill(255, 255, 84, 255);
+  ellipse(100, 340, 20, 20);
+
+    ////// //tree
+  noStroke();
+  fill(242, 194, 143);
+  fill(125, 93, 59);
+  fill(82, 50, 16);
+
+  beginShape();
+  vertex(0, 400);
+  vertex(10, 350);
+  vertex(10, 340);
+  vertex(10, 320);
+  vertex(10, 300);
+  vertex(20, 200);
+  vertex(25, 100);
+  vertex(10, 0);
+  vertex(80, 0);
+  vertex(88, 200);
+  vertex(92, 250);
+  vertex(100, 300);
+  vertex(80, 400);
+  endShape();
+
+  beginShape();
+  vertex(60, 200);
+  vertex(140, 200);
+  vertex(180, 220);
+  endShape();
+
+  beginShape();
+  vertex(60, 100);
+  vertex(140, 80);
+  vertex(190, 80);
+  endShape();
+
+  //vines
+  fill(31, 79, 48);
+  beginShape();
+  vertex(0, 0);
+  vertex(40, 200);
+  vertex(100, 400);
+  endShape();
+  beginShape();
+  vertex(70, 0);
+  vertex(30, 200);
+  vertex(20, 400);
+  endShape();
+  beginShape();
+  vertex(60, 0);
+  vertex(80, 80);
+  vertex(90, 400);
+  endShape();
+  //bird 2
+  noStroke();
+  fill(223, 230, 103);
+  ellipse(108, 175, 20, 20);
+  ellipse(122, 190, 25, 25);
+  fill(242, 173, 61);
+  triangle(97.9, 175, 82, 178, 99, 181);
+  fill(0, 0, 0);
+  ellipse(104, 175, 3, 3);
+  //bird 1
+  noStroke();
+  fill(249, 255, 140);
+  triangle(100, 50, 89, 52, 100, 55);
+  fill(34, 154, 161);
+  ellipse(110, 50, 20, 20);
+  ellipse(122, 68, 25, 25);
+  fill(0, 0, 0);
+  ellipse(107, 50, 3, 3);
+  ellipse(120, 85, 2, 10);
+  ellipse(127, 85, 2, 10);
+    ///////
+    
+// plants
+  fill(18, 99, 38);
+  ellipse(600, 260, 15, 200); //rght plnt
+   ellipse(588, 340, 30, 10);  //left leaf, rght plnt
+  ellipse(619, 300, 30, 10);
+    //
+      // tree 1
+  fill(67, 51, 8); // tree brown
+  rect(644,335,15,26); // trunk
+  fill('#cc0000');
+ ellipse(660,337,20,25);// tree top
+  ellipse(640,325,30,20);
+  ellipse(644,340,24,30);
+    //tree2
+     
+  fill(67, 51, 8); // tree brown
+  rect(680,335,15,26); // trunk
+  fill('  #ffcc00');
+ ellipse(675,337,20,25);// tree top
+  ellipse(685,345,30,20);
+  ellipse(695,330,25,25);
+    drawGirl(130, 275);
+    drawBoy(191, 275);
+     noStroke()
+    fill('black');
+    textSize(25);
+    text("     👭🤗SMALL ACT OF KINDNESS\nCAN BRING A SMILE ON SOMEONE'S FACE🤩😊", 100, height-80 );
+ 
+     }
+}
+
+
+//functions
+
+//draw cloud
+function drawCloud(xCoordCloud, yCoordCloud) {
+  fill(216,216,216);
+  noStroke(10);
+  ellipse( 100, 30, 250, 100);
+  ellipse( 310, 30, 250, 110);
+  ellipse( 500, 30, 250, 90);
+  ellipse( 650, 30, 250, 80);
+
+}
+
+
+
+//draw girl
+function drawGirl(xCoordGirl, yCoordGirl) {
+  strokeWeight(7);
+  stroke(240, 172, 224);
+  fill(240, 172, 224);
+  circle(xCoordGirl, yCoordGirl, 30);
+  line(xCoordGirl, yCoordGirl + 15, xCoordGirl, yCoordGirl + 55);
+  line(xCoordGirl - 20, yCoordGirl + 85, xCoordGirl - 1, yCoordGirl + 55);
+  line(xCoordGirl + 20, yCoordGirl + 85, xCoordGirl + 1, yCoordGirl + 55);
+  line(xCoordGirl, yCoordGirl + 35, xCoordGirl - 30, yCoordGirl + 20);
+  line(xCoordGirl, yCoordGirl + 35, xCoordGirl + 30, yCoordGirl + 20);
+}
+
+//draw boy
+function drawBoy(xCoordBoy, yCoordBoy) {
+  strokeWeight(8);
+  stroke(135, 193, 250);
+  fill(135, 193, 250);
+  circle(xCoordBoy, yCoordBoy, 30);
+  // boys body
+  line(xCoordBoy, yCoordBoy + 15, xCoordBoy, yCoordBoy + 55);
+  //boys lft leg
+  line(xCoordBoy - 20, yCoordBoy + 85, xCoordBoy - 1, yCoordBoy + 55);
+  //boys rght leg
+  line(xCoordBoy + 20, yCoordBoy + 85, xCoordBoy - 1, yCoordBoy + 55);
+  //boys rght arm
+  line(xCoordBoy, yCoordBoy + 35, xCoordBoy + 30, yCoordBoy + 20);
+  //boys lft arm
+  line(xCoordBoy, yCoordBoy + 35, xCoordBoy - 30, yCoordBoy + 20);
+}
+
+//draw umbrella
+function drawUmbrella(xCoordUmbrella, yCoordUmbrella) {
+  strokeWeight(4);
+  stroke(260);
+  fill('#ffcc00');
+  line(xCoordUmbrella, yCoordUmbrella - 35, xCoordUmbrella, yCoordUmbrella + 40);
+  arc(160, 300, 150, 200, 180, 150, PI + QUARTER_PI, OPEN);
+}
+
+//draw sun
+function drawSun(xCoordSun, yCoordSun) {
+  noStroke()
+  //fill(255, 255, 134)
+  fill('white');
+  circle(xCoordSun, yCoordSun, 80)
+}
+
+
+//message at top
+function updateMessage(msg) {
+
+  //dialogue box
+  noStroke();
+  fill(255);
+  rect(0, 0, width, 40);
+  //message text  
+  noStroke();
+  fill(0);
+  text(msg, 20, 20);
+////////moutains
+//right mountain
+fill(91, 71, 110);
+  strokeWeight(0);
+  triangle(360, 130, 760, 500, -40, 500);
+  //right mountain innerside
+  fill(213, 212, 255);
+  strokeWeight(0);
+  beginShape();
+    vertex(360, 130);
+    vertex(485, 246);
+    vertex(390, 200);
+    vertex(360, 250);
+    vertex(320, 217);
+    vertex(225, 255);
+  endShape(CLOSE);
+//closer one small mountain
+ fill(174, 139, 222);
+  strokeWeight(0);
+  triangle(100, 180, 500, 500, -260, 500);
+  
+  fill(231, 241, 255);
+  strokeWeight(0);
+  beginShape();
+    vertex(100, 180);
+    vertex(225, 280);
+    vertex(145, 250);
+    vertex(120, 290);
+    vertex(70, 260);
+    vertex(-20, 286);
+  endShape(CLOSE);
+//HILLS
+  fill(60, 145, 57);
+  ellipse(50, 580, 1000, 400);
+
+  fill(69, 168, 66);
+  ellipse(440, 600, 1000, 400);
+  
+}
+
+//triggers moving between frames
+function keyPressed() {
+
+  if (key == "0") {
+    storyStage = "begin";
+  } else if (key == "1") {
+    storyStage = "Frame 1";
+  } else if (key == "2") {
+    storyStage = "Frame 2";
+  } else if (key == "3") { 
+    storyStage = "Frame 3";
+  } else if (key == "4") {
+    storyStage = "End";
+  }
+
+}
